@@ -13,31 +13,21 @@ public class assignOne {
 		double empCheck = Math.floor(Math.random() * 10) % 3;
 		int dailyempwage = 0;
 		int noOfHour =0;
-
-//		if( empCheck == 1){
-//			System.out.println("Employee is present");
-//		}
-//		else {
-//			System.out.println("Employee is absent");
-//		}
-		
-//		System.out.println("full time employee wage-"+ dailyempwage);
-//		System.out.println("part time employee wage-"+ partempwage);
-	    switch((int)empCheck) {
-	        case IS_FULL_TIME :
-	    	   System.out.println("Employer is present");
-	    	   noOfHour = FULL_DAY_HOUR;
-	    	   break;
-	        case IS_PART_TIME:
-	    	   System.out.println("Employer is absent");
-	    	   noOfHour = PART_DAY_HOUR;
-	    	   break;
-	        default:
+	       switch((int)empCheck) {
+	          case IS_FULL_TIME :
+	    	     System.out.println("Employer is present");
+	    	     noOfHour = FULL_DAY_HOUR;
+	    	     break;
+	          case IS_PART_TIME:
+	    	     System.out.println("Employer is absent");
+	    	     noOfHour = PART_DAY_HOUR;
+	    	     break;
+	          default:
 	    	   System.out.println("Employer is absent");
 	    	
 	    }
-	    dailyempwage = WAGE_PER_HOUR * noOfHour;
-	    System.out.println("Daily wage-"+ dailyempwage);
+	       dailyempwage = WAGE_PER_HOUR * noOfHour;
+	       System.out.println("Daily wage-"+ dailyempwage);
 	}
 }
 
