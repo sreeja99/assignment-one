@@ -9,7 +9,8 @@ public class assignOne {
 	public static final int NO_OF_WORK_DAYS = 20;
 	public static final int HOURS_WORKING = 100;
 	
-	public static int computeEmpWage() {
+	public static int computeEmpWage(String companyName,int empWagePerHr,int 
+			n0OfWorkingDays,int maxHrsPerMonth) {
 		int empHrs = 0;
 		int workDays = 0;
 		int totalEmpHrs = 0;
@@ -39,10 +40,10 @@ public class assignOne {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		computeEmpWage();
+		computeEmpWage("Levis",15,25,120);
+		computeEmpWage("Lavie",12,30,95);
 	}
 }
-
 
 
 
