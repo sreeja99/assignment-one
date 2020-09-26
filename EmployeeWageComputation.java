@@ -14,6 +14,7 @@ public class assignOne {
 		int empHrs = 0;
 		int workDays = 0;
 		int totalEmpHrs = 0;
+		System.out.println("Days \t Total WorkingHours");
 		while(totalEmpHrs <= HOURS_WORKING && workDays <NO_OF_WORK_DAYS) {
 			workDays++;
 			int empCheck = (int)(Math.floor(Math.random()*10)%2);
@@ -28,10 +29,10 @@ public class assignOne {
 				empHrs =0;
 			}
 			totalEmpHrs += empHrs;
-		}
-			System.out.println("Day:"+ workDays +"\tTotal Working Hours:"+totalEmpHrs);
+		    int wage = WAGE_PER_HOUR *empHrs;
+			System.out.println( workDays +" \t \t"+totalEmpHrs);
 			
-//		}
+		}
 		int totalEmpWage = totalEmpHrs * WAGE_PER_HOUR;
 		System.out.println("Total Emp Wage:"+totalEmpWage);
 		return totalEmpWage;
@@ -44,6 +45,10 @@ public class assignOne {
 		computeEmpWage("Lavie",12,30,95);
 	}
 }
+
+
+
+
 
 
 
