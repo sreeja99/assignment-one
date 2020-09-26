@@ -29,8 +29,7 @@ public class assignOne {
 				empHrs =0;
 			}
 			totalEmpHrs += empHrs;
-		    int wage = WAGE_PER_HOUR *empHrs;
-			System.out.println( workDays +" \t \t"+totalEmpHrs);
+		System.out.println( workDays +" \t \t"+totalEmpHrs);
 			
 		}
 		int totalEmpWage = totalEmpHrs * WAGE_PER_HOUR;
