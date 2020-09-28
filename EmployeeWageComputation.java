@@ -1,6 +1,7 @@
 package first;
 
-public class EmpWageBuilder {
+public class EmpWageBuilder  implements IComputeEmpWage {
+	// static variables
 	public static final int IS_PART_TIME = 2;
 	public static final int IS_FULL_TIME = 1;
 
@@ -11,14 +12,13 @@ public class EmpWageBuilder {
 		companyEmpWageArrays = new CompanyEmpWage[5];
 	}
 
-	private void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth,
-			String companyName) {
+	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
 		companyEmpWageArrays[numOfCompanies] = new CompanyEmpWage(empWagePerHour, workDaysPerMonth, workHoursPerMonth,
 				companyName);
 		numOfCompanies++;
 	}
 
-	private void ComputeEmpWage() {
+	public void ComputeEmpWage() {
 		for (int i = 0; i < numOfCompanies; i++) {
 			int totalEmpWage = this.ComputeEmpWage(companyEmpWageArrays[i]);
 			System.out.println((companyEmpWageArrays[i].companyName) + " has total wage : " + totalEmpWage);
@@ -55,7 +55,7 @@ public class EmpWageBuilder {
 			totalEmpHours += empHour;
 
 			// Tabular Display of Employee Details for Maximum Monthly Hours or Days
-			System.out.println("Day\t" + dayCount + "Hours Worked\t" + empHour);
+			System.out.println("Day\t" + dayCount + " Hours Worked\t" + empHour);
 		}
 		return totalEmpHours * companyEmpWage.empWagePerHour;
 	}
@@ -78,6 +78,13 @@ public class CompanyEmpWage {
 		this.totalEmpWage = totalEmpWage;
 	}
 }
+public interface IComputeEmpWage {
+	public void ComputeEmpWage();
+
+	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName);
+}
+
+
 
 	
 	public static void main(String[] args) {
@@ -92,3 +99,4 @@ public class CompanyEmpWage {
 	}
 }
 
+	
