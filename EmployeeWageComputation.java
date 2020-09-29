@@ -33,9 +33,9 @@ public class EmpWageBuilder  implements IComputeEmpWage {
 		}
 	}
 	//@override
-//	public int getTotalWage(String companyName) {
-//		return companyToEmpWageMap.get(companyName).totalEmpWage;
-//	}
+	public int getTotalWage(String companyName) {
+		return companyToEmpWageMap.get(companyName).totalEmpWage;
+	}
 
 	public int ComputeEmpWage(CompanyEmpWage companyEmpWage) {
 		// variables
@@ -71,6 +71,7 @@ public class EmpWageBuilder  implements IComputeEmpWage {
 		}
 		return totalEmpHours * companyEmpWage.empWagePerHour;
 	}
+
 public class CompanyEmpWage {
 
 	public final int empWagePerHour;
@@ -94,9 +95,8 @@ public interface IComputeEmpWage {
 	public void ComputeEmpWage();
 
 	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName);
-//	public int getTotalWage(String companyName);
+	public int getTotalWage(String companyName);
 }
-
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -110,7 +110,5 @@ public interface IComputeEmpWage {
 		empWageBuilder.ComputeEmpWage();
 	}
 }
-
-	
 
 	
