@@ -1,27 +1,31 @@
 package first;
 
+import java.util.ArrayList;
+
 public class EmpWageBuilder  implements IComputeEmpWage {
 	// static variables
 	public static final int IS_PART_TIME = 2;
 	public static final int IS_FULL_TIME = 1;
 
 	private int numOfCompanies = 0;
-	private CompanyEmpWage[] companyEmpWageArrays;
+    private ArrayList<CompanyEmpWage> companyEmpWageList;
 
 	public EmpWageBuilder() {
-		companyEmpWageArrays = new CompanyEmpWage[5];
+		companyEmpWageList = new ArrayList<>();
 	}
 
 	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
-		companyEmpWageArrays[numOfCompanies] = new CompanyEmpWage(empWagePerHour, workDaysPerMonth, workHoursPerMonth,
-				companyName);
-		numOfCompanies++;
+		
+		CompanyEmpWage companyEmpWage =new CompanyEmpWage(empWagePerHour,workDaysPerMonth, workHoursPerMonth, companyName); 
+		companyEmpWageList.add(companyEmpWage);
 	}
 
 	public void ComputeEmpWage() {
 		for (int i = 0; i < numOfCompanies; i++) {
-			int totalEmpWage = this.ComputeEmpWage(companyEmpWageArrays[i]);
-			System.out.println((companyEmpWageArrays[i].companyName) + " has total wage : " + totalEmpWage);
+			CompanyEmpWage companyEmpWage =companyEmpWageList.get(i);
+			companyEmpWage.setTotalWage(this.ComputeEmpWage(companyEmpWage));
+			System.out.println(companyEmpWage);
+			
 		}
 	}
 
@@ -86,12 +90,12 @@ public interface IComputeEmpWage {
 
 
 
-	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 		// Welcome Message
 		System.out.println("Welcome to Employee Wage Computation");
+//		IComputeEmpWage empWageBuilder = new EmpWageBuilder();
 		EmpWageBuilder empWageBuilder = new EmpWageBuilder();
 		empWageBuilder.addCompanyEmpWage(20, 15, 100, "Company A");
 		empWageBuilder.addCompanyEmpWage(10, 20, 90, "Company B");
