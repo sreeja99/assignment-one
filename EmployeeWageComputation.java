@@ -1,6 +1,7 @@
 package first;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class EmpWageBuilder  implements IComputeEmpWage {
 	// static variables
@@ -9,15 +10,18 @@ public class EmpWageBuilder  implements IComputeEmpWage {
 
 	private int numOfCompanies = 0;
     private ArrayList<CompanyEmpWage> companyEmpWageList;
+    private Map<String,CompanyEmpWage> companyToEmpWageMap;
 
 	public EmpWageBuilder() {
 		companyEmpWageList = new ArrayList<>();
+		companyToEmpWageMap=new HashMap<>();
 	}
 
 	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName) {
 		
 		CompanyEmpWage companyEmpWage =new CompanyEmpWage(empWagePerHour,workDaysPerMonth, workHoursPerMonth, companyName); 
 		companyEmpWageList.add(companyEmpWage);
+		companyToEmpWageMap.put(companyName,companyEmpWage);
 	}
 
 	public void ComputeEmpWage() {
@@ -28,6 +32,10 @@ public class EmpWageBuilder  implements IComputeEmpWage {
 			
 		}
 	}
+	//@override
+//	public int getTotalWage(String companyName) {
+//		return companyToEmpWageMap.get(companyName).totalEmpWage;
+//	}
 
 	public int ComputeEmpWage(CompanyEmpWage companyEmpWage) {
 		// variables
@@ -86,8 +94,8 @@ public interface IComputeEmpWage {
 	public void ComputeEmpWage();
 
 	public void addCompanyEmpWage(int empWagePerHour, int workDaysPerMonth, int workHoursPerMonth, String companyName);
+//	public int getTotalWage(String companyName);
 }
-
 
 
 	public static void main(String[] args) {
@@ -102,5 +110,7 @@ public interface IComputeEmpWage {
 		empWageBuilder.ComputeEmpWage();
 	}
 }
+
+	
 
 	
